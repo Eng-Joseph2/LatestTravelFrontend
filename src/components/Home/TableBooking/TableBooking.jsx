@@ -8,9 +8,11 @@ const TableBooking = () => {
   const [data, setData] = useState([]);
 
   const HandalData = () => {
-    axios.get("https://backendtravel-2-u82c.onrender.com/readBooking").then((res) => {
-      setData(res.data);
-    });
+    axios
+      .get("https://backendtravel-2-u82c.onrender.com/readBooking")
+      .then((res) => {
+        setData(res.data);
+      });
   };
 
   useEffect(() => {
@@ -18,7 +20,9 @@ const TableBooking = () => {
   }, []);
 
   const HandalDelete = (id) => {
-    axios.delete(`https://backendtravel-2-u82c.onrender.com/deleteBooking/${id}`);
+    axios.delete(
+      `https://backendtravel-2-u82c.onrender.com/deleteBooking/${id}`
+    );
     alert("Success Delete");
     HandalData();
   };
@@ -53,7 +57,7 @@ const TableBooking = () => {
                   <td>{index + 1}</td>
                   <td>
                     <img
-                      src={`http://localhost:9007/iamges/${item.Bimage}`}
+                      src={`https://backendtravel-2-u82c.onrender.com/iamges/${item.Bimage}`}
                       alt="Tour"
                       className="table-img"
                     />
